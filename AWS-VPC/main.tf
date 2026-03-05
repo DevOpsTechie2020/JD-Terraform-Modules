@@ -113,7 +113,7 @@ resource "aws_eip" "nat" {
   domain = "vpc"
 
   tags = merge(
-    loal.common_tags,
+    local.common_tags,
     {
       name = "${var.project}-${var.environment}-nat"
     },
@@ -126,7 +126,7 @@ resource "aws_nat_gateway" "main" {
   subnet_id = aws_subnet.public[0].id #we are creating in useast-1a az
   
   tags = merge(
-    loal.common_tags,
+    local.common_tags,
     {
       name = "${var.project}-${var.environment}-nat"
     },
